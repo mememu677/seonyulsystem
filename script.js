@@ -3,5 +3,13 @@ let current = 0;
 
 function switchAlter() {
   current = (current + 1) % alters.length;
-  document.getElementById("current-alter").textContent = alters[current];
+  const alterText = alters[current];
+  document.getElementById("current-alter").textContent = alterText;
+
+  const castleLink = document.getElementById("castle-link");
+  if (alterText === "선율") {
+    castleLink.style.display = "inline-block";
+  } else {
+    castleLink.style.display = "none";
+  }
 }
