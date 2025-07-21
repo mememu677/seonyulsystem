@@ -1,25 +1,68 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>임선율 시스템 런처</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임선율 시스템 런처</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f4f4;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            height: 100vh;
+        }
+        nav {
+            background: #fff;
+            padding: 1em;
+            border-right: 1px solid #ccc;
+        }
+        nav button {
+            display: block;
+            margin: 1em 0;
+            padding: 0.5em;
+            width: 100%;
+            font-size: 1em;
+        }
+        main {
+            padding: 1em;
+            overflow-y: auto;
+        }
+        iframe {
+            width: 100%;
+            height: 90vh;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="launcher">
-    <h1>🧠 임선율 시스템 런처</h1>
-    <div class="identity-check">
-      <label for="identity">현재 자아를 입력하세요:</label>
-      <input type="text" id="identity" placeholder="예: 선율, 온결" />
-      <button onclick="confirmIdentity()">확인</button>
+    <header>
+        <h1>임선율 시스템 런처</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <button onclick="loadPage('diary.html')">📒 시스템 다이어리</button>
+            <button onclick="loadPage('settlement.html')">🌏 호주 정착 계획</button>
+            <button onclick="location.href='https://mx-didra-castle.vercel.app'">🏰 Mx.Didra's Castle</button>
+        </nav>
+        <main>
+            <iframe id="contentFrame" src="diary.html"></iframe>
+        </main>
     </div>
-    <div id="links" style="display:none;">
-      <a href="https://www.notion.so/237fc3e293dc804580fddb43ccdb8a5b" target="_blank">📒 시스템 다이어리</a>
-      <a href="https://www.notion.so/237fc3e293dc801fbc64e82f012e4438" target="_blank">🛫 호주 정착 계획</a>
-      <a href="#" id="secretLink" target="_blank" style="display:none;">🏰 Mx.Didra's Castle</a>
-    </div>
-  </div>
-  <script src="script.js"></script>
+    <script>
+        function loadPage(page) {
+            document.getElementById('contentFrame').src = page;
+        }
+    </script>
 </body>
 </html>
